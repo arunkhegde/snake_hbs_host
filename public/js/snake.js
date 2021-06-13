@@ -2,11 +2,11 @@
 Create by Learn Web Developement
 Youtube channel : https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA
 */
-const hiddenScore=document.querySelector("#hiddenScore")
+//const hiddenScore=document.querySelector("#hiddenScore")
 
 function updateScore(s){
     console.log(s)
-    hiddenScore.value=s;   
+    //hiddenScore.value=s;   
 }
 const cvs = document.getElementById("snake");
 const ctx = cvs.getContext("2d");
@@ -144,6 +144,22 @@ function draw(){
         
         clearInterval(game);
         dead.play();
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/submitIt", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+        hiddenScore: score
+        }))
+            // draw everything to the canvas
+        
+        // snake=[]
+        // snake[0] = {
+        //     x : 9 * box,
+        //     y : 10 * box
+        // }
+        location.reload()
+
         
     }
     

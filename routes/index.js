@@ -16,18 +16,19 @@ router.get('/snakeIt',ensureAuth,(req,res)=>{
 
 router.post('/submitIt',ensureAuth,async(req,res)=>{
     console.log(req.body)
-    const newScore={
-        score:req.body.hiddenScore,
-        player:req.user._id,
-    }
-    try{
-    let final=await Score.create(newScore)
-    res.redirect('/snakeIt')
+    console.log("lol")
+    // const newScore={
+    //     score:req.body.hiddenScore,
+    //     player:req.user._id,
+    // }
+    // try{
+    // let final=await Score.create(newScore)
+    // res.redirect('/snakeIt')
             
-    }
-    catch(err){
-        console.log(err)
-    }
+    // }
+    // catch(err){
+    //     console.log(err)
+    // }
 })
 
 router.get('/scores',ensureAuth,async(req,res)=>{
